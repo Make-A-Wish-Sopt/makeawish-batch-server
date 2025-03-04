@@ -37,7 +37,7 @@ public class MessageService {
             String[] variables = StringUtils.isEmpty(template.getTemplateVariables()) ? new String[0] :template.getTemplateVariables().split(",");
             String content = getReplacedContent(template.getTemplateContent(), variables);
             String receiptNum = kakaoService.sendATS(corpNum, template.getTemplateCode(), senderNum, content,
-                    "", "", phoneNumber, userID, sendDate, userID, sendDate, getKakaoButtons(template.getTemplateButton(), template.getTemplateButtonUrl()));
+                    "", "", phoneNumber, userID, sendDate, userID, sendDate+phoneNumber, getKakaoButtons(template.getTemplateButton(), template.getTemplateButtonUrl()));
         } catch (PopbillException e) {
             log.error("e.message : " + e.getMessage());
         }
