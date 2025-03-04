@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public enum KakaoTemplateCode {
-    WISH_REMIND_WEEK_BEFORE("D-7 소원 알림톡 발송");
+    WISH_REMIND_WEEK_BEFORE("D-7 소원 알림톡 발송")
+    ,WISH_REMIND_DAY_BEFORE("D-1 소원 알림톡 발송")
+    ;
 
     private String code;
 }
