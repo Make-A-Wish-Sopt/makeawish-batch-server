@@ -28,7 +28,10 @@ jobs:
         uses: gradle/gradle-build-action@v3
 
       - name: Build with Gradle
-        run: ./gradlew clean build -x test
+        run: ./gradlew clean build --no-build-cache -x test
+
+      - name: Check built files
+        run: ls -lh build/libs/
 
       - name: Run Spring Batch Job (Scheduled)
         env:
