@@ -25,8 +25,11 @@ jobs:
           java-version: '17'
 
       - name: Create application.yml
-        run: mkdir -p src/main/resources
-            echo "${{ secrets.APP_SECRET_KEY }}" | base64 --decode > src/main/resources/application.yml
+        working-directory: ./
+        run: |
+            mkdir -p src/main/resources
+            touch src/main/resources/application.yml
+            echo "${{ secrets.APP_SECRET_KEY }}" >> src/main/resources/application.yml
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
