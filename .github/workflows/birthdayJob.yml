@@ -28,7 +28,7 @@ jobs:
         uses: gradle/gradle-build-action@v3
 
       - name: Build with Gradle
-        run: ./gradlew clean build --no-build-cache -x test
+        run: ./gradlew clean bootJar
 
       - name: Check built files
         run: ls -lh build/libs/
